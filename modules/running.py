@@ -8,6 +8,7 @@ from .tilemap import game_map
 from .enemies import chicken1
 from .settings import heart1, heart2, heart3, heart4, heart5, egg, meat, key
 from .fonts import count_font, key_count_text , meat_count_text
+from .images import create_path
 
 pygame.init()
 
@@ -15,9 +16,12 @@ def run():
     running = True
 
     clock = pygame.time.Clock()
+
+    bg = pygame.image.load(create_path("assets/other/background.png"))
+
     
     while running:
-        screen.fill((0, 0, 0))
+        screen.blit(bg, (0, 0))
         
         # Оновлюємо лічильник яєць
         egg_count_text = count_font.render(f"{main_player.EGGS_COUNT}", True, (255, 255, 255))
